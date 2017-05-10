@@ -1,0 +1,23 @@
+cpcp.c:100:21: warning: format specifies type 'int' but the argument has type 'unsigned long' [-Wformat]
+    printf("%d \n", sizeof(in_addrInstance)); 
+            ~~      ^~~~~~~~~~~~~~~~~~~~~~~
+            %lu
+cpcp.c:101:21: warning: format specifies type 'int' but the argument has type 'unsigned long' [-Wformat]
+    printf("%d \n", sizeof(sockaddrInstance)); 
+            ~~      ^~~~~~~~~~~~~~~~~~~~~~~~
+            %lu
+cpcp.c:102:21: warning: format specifies type 'int' but the argument has type 'unsigned long' [-Wformat]
+    printf("%d \n", sizeof(sockaddr_inInstance)); 
+            ~~      ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+            %lu
+cpcp.c:103:21: warning: format specifies type 'int' but the argument has type 'unsigned long' [-Wformat]
+    printf("%d \n", sizeof(addrinfoInstance)); 
+            ~~      ^~~~~~~~~~~~~~~~~~~~~~~~
+            %lu
+cpcp.c:111:5: warning: implicit declaration of function 'inet_pton' is invalid in C99 [-Wimplicit-function-declaration]
+    inet_pton(AF_INET, ip4IntegerAddress, &(sockaddr_inInstance.sin_addr)); // IPv4
+    ^
+cpcp.c:116:5: warning: implicit declaration of function 'inet_ntop' is invalid in C99 [-Wimplicit-function-declaration]
+    inet_ntop(AF_INET, &(sockaddr_inInstance.sin_addr), ip4IntegerAddress, INET_ADDRSTRLEN);
+    ^
+6 warnings generated.

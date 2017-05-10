@@ -1,0 +1,8 @@
+ 
+    struct in_addr addr;
+    inet_pton(AF_INET, "www.baidu.com", &addr);
+
+    char hostName[100];
+
+    inet_ntop(AF_INET, &addr,  hostName, 100);
+    printf("%s \n", hostName); 
