@@ -26,16 +26,35 @@ int main(int argc, char** argv)
     // If success, then we have an available socket.
     // The situation is that, when we are able to 
     int clientfd = getclientfd(ipAddressString, PORT);
+    printf("\n");
+   
+
+    int length = 26;
+    char seeStringS[length+1];
+
+
+    char* requestString = "GET / HTTP/1.0\r\n\r\n";
+
+    write(clientfd, requestString, 128);
     
-    char c[2];
-    int i = 15;
+    int BUFFERSIZE = 1024;
+    char buffer[BUFFERSIZE + 1];
+    int readFlag; 
+
+    
+while(1)
+{
+    readFlag = read(clientfd, buffer, BUFFERSIZE); 
+    assert(readFlag > 0, "cannot read from the server");
     
     
-    // Actually the idea is simple, we can just read the file descriptor until there is no more to read.
-    while (i--)
-    {
-        int readFlag = read(clientfd, c, 1);  assert(readFlag > 0, "no more to read");
-        printf("%c", c[0]);
-    }
+
+        buffer[readFlag+1] = '\n';
+        printf("we've read %d strings \n",readFlag);
+        printf("%s \n", buffer); 
+
+}
+     
+
     close(clientfd);
 }

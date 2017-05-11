@@ -15,7 +15,6 @@ int main(int argc, char** argv)
         confd     = accept(serverfd, (SA* )&clientSocket, &clientlen);
         printf("%s \n", "connected!");
         write(confd, "string", 6);
-
         close(confd);
      }
      close(serverfd);
