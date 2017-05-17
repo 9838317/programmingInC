@@ -1,0 +1,24 @@
+This is a blocking example of server.
+
+    client:
+    
+      compile ./1client/5b_clientGetFile.c to get the client.
+
+	    gcc 5b_clientGetFile.c -ll2net -llas -o client;
+
+      then run with 8888 port to connect the server.
+
+	  ./client 8888
+ 
+    server:
+    
+      compile 6b_sendFileServer.c to get the server.
+      
+              gcc 6b_sendFileServer.c -ll2net -llas -o server;
+              
+      then run with 8888 port to serve. 
+      
+          ./server 8888
+          
+          
+make sure the txt file is big enough to see the blocking, better more than 200m.
